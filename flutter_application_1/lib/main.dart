@@ -1,58 +1,40 @@
 import 'package:flutter/material.dart';
-import 'example3.dart';
-import 'example4.dart';
-import 'timetable.dart';
+import 'course_Offered.dart';
 
 void main() {
-  //runApp(const MyApp1());
-  //runApp(const MyAppExp2());
-  //runApp(const MyAppExp3());
-  //runApp(const MyAppExp4());
-  runApp(const TimeTable());
+  runApp(
+    MaterialApp(
+      title: "My IUB",
+      home: const HomePage(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.blue),
+    ),
+  );
 }
 
-class MyApp1 extends StatelessWidget {
-  const MyApp1({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'IUB Portal',
-      home: Scaffold(
-          appBar: AppBar(title: const Text('My IUB - Example'), actions: []),
-          body: const Center(
-            child: Text("Dashborad Contents - Example 1"),
-          )),
-    );
-  }
-}
-
-/////////////////////////////////////////////////////////////////////////////
-///
-///
-class MyAppExp2 extends StatelessWidget {
-  const MyAppExp2({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'IUB Portal',
-      home: Scaffold(
-        appBar: AppBar(title: const Text('My IUB - Example'), actions: []),
-        body: myDashBoard(),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("MY IUB"),
+        centerTitle: true,
+      ),
+      body: Container(
+        padding: const EdgeInsets.all(10),
+        child: Center(
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return const course_Offered();
+              }));
+            },
+            child: const Text("Got To Courses Offered"),
+          ),
+        ),
       ),
     );
   }
-
-  Widget myDashBoard() {
-    return const Center(
-        child: Text(
-      "Dashboard Contents - Example 2",
-    ));
-  }
 }
-
-/// This is my Widget
-
